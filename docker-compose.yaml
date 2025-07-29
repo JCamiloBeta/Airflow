@@ -113,6 +113,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    environment:
+      - AIRFLOW__CORE__DEFAULT_TIMEZONE=America/Bogota
 
   airflow-scheduler:
     <<: *airflow-common
@@ -127,6 +129,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    environment:
+      - AIRFLOW__CORE__DEFAULT_TIMEZONE=America/Bogota
 
   airflow-worker:
     <<: *airflow-common
