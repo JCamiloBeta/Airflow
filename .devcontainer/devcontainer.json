@@ -1,0 +1,25 @@
+{
+  "name": "Airflow Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "python.analysis.diagnosticSeverityOverrides": {
+      "reportMissingImports": "none"
+    },
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ],
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt || true",
+  "remoteUser": "airflow", 
+  "mounts": [
+    "source=${localWorkspaceFolder}/dags,target=/opt/airflow/dags,type=bind",
+    "source=${localWorkspaceFolder}/plugins,target=/opt/airflow/plugins,type=bind",
+    "source=${localWorkspaceFolder}/requirements.txt,target=/opt/airflow/requirements.txt,type=bind"
+  ]
+}
