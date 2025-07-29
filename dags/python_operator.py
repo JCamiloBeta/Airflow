@@ -15,3 +15,4 @@ with DAG(dag_id="python_operator",
     t1 = PythonOperator(task_id="hello_with_python",
                         python_callable=print_hello)
     
+print("DAG 'python_operator' has been created with a PythonOperator task.")
