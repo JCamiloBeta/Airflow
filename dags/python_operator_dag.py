@@ -7,7 +7,7 @@ def print_hello():
     print("Hello, Airflow!")
 
 
-with DAG(dag_id="python_operator",
+with DAG(dag_id="python_operator_dag",
          description="DAG con Python Operator",
          start_date=datetime(2025,7,28),
          schedule_interval="@once") as dag:
